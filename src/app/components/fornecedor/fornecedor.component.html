@@ -1,0 +1,46 @@
+<form [formGroup]="fornecedorForm" (ngSubmit)="inserir()">
+  <p>nome: <input type="text" formControlName="nome" /></p>
+  <p>Endereço <input type="text" formControlName="endereco" /></p>
+  <p>Telefone <input type="text" formControlName="telefone" /></p>
+  <button type="submit" >Enviar</button>
+</form>
+
+<h2>Listar</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Endereco</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(item of fornecedores; track $index){
+      <tr>
+        <th scope="row">{{ item.id }}</th>
+        <td>{{ item.nome }}</td>
+        <td>{{ item.endereco }}</td>
+        <td>{{ item.telefone }}</td>
+        <td>
+          <input type="button" value="editar" (click)="abrirModal(item.id)" />
+          <input type="button" value="remover" (click)="remover(item.id)" />
+        </td>
+      </tr>
+      }
+  </tbody>
+</table>
+
+<div id="myModal" class="modal" [style.display]="display">
+  <div class="modal-content">
+    <button class="close" (click)="fecharModal()">&times;</button>
+    <form [formGroup]="fornecedorFormEdit" (ngSubmit)="submitEditar()">
+      <p>nome: <input type="text" formControlName="nome" /></p>
+      <p>Endereço <input type="text" formControlName="endereco" /></p>
+      <p>Telefone <input type="text" formControlName="telefone" /></p>
+      <button type="submit" >Enviar</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+{
+  "fornecedores": [
+    {
+      "id": "FAU123SA",
+      "nome": "Kaio dos Santos Valls",
+      "endereco": "Rua Domingos 321",
+      "telefone": "222221"
+    },
+    {
+      "id": "FAU123SB",
+      "nome": "Erik Giuseppe Kato Bandeira",
+      "endereco": "Rua Domingos 123",
+      "telefone": "828382"
+    }
+  ]
+}
